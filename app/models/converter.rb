@@ -40,7 +40,7 @@ class Converter
   private
 
     def languages_is_array
-      if valid_json?(json_object)
+      if !json_object.blank? && valid_json?(json_object)
        self.json_object = JSON.parse(json_object)
       elsif !self.json_object.blank?
         errors.add(:json_object, "must be an array")        
